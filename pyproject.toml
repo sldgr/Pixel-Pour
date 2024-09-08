@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "pixel_pour"
+version = "0.1.0"
+description = "A falling sand simulation in Python."
+authors = ["Cole Harding"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.3"
+pygame = "^2.6.0"
+numpy = "^2.1.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+black = "^24.8.0"
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+mypy = "^1.11.2"
+pre-commit = "^3.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | venv
+  | env
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+skip = [".gitignore", ".dockerignore"]
+extend_skip = [".md", ".json"]
+extend_skip_glob = [
+    "**/venv/*",
+    "**/.venv/*",
+    "**/env/*",
+    "**/.env/*",
+]
