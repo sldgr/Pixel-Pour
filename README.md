@@ -25,7 +25,7 @@ pip install poetry
 ```
 Install the project dependencies:
 ```
-pip install
+poetry install
 ```
 
 ## Using Pixel Pour
